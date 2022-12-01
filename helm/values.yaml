@@ -1,0 +1,13 @@
+dbt:
+  image:
+    name: us-east4-docker.pkg.dev/hackathon-data-pipeline/builders/dbt:latest
+    pullPolicy: Always
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "latest"
+  serviceAccount:
+    create: true
+    name: dbt
+  schedule: "*/15 * * * *"
+
+env:
+  project_id: hackathon_data_pipeline

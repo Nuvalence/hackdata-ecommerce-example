@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: dbt
+spec:
+  schedule: {{ .Values.dbt.schedule | quote }}
+  concurrencyPolicy: Forbid
+  suspend: false
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ .Values.dbt.serviceAccount.name}}
+          containers:
+            - name: dbt
+              image: {{ .Values.dbt.image.name }}
+              env:
+                - name: PROJECT_ID
+                  value: {{ .Values.env.project_id }}
+          restartPolicy: OnFailure

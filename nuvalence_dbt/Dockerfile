@@ -7,6 +7,4 @@ COPY ./macros/ ./macros
 COPY ./tests/ ./tests
 COPY ./models/ ./models
 
-RUN chmod +x entrypoint.sh
-
-ENTRYPOINT ["dbt", "run", "--profiles-dir", "."]
+ENTRYPOINT ["./entrypoint.sh"]

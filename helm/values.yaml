@@ -5,9 +5,8 @@ dbt:
     # Overrides the image tag whose default is the chart appVersion.
     tag: "latest"
   serviceAccount:
-    create: true
-    name: dbt
+    name: default
   schedule: "*/15 * * * *"
 
 env:
-  project_id: hackathon_data_pipeline
+  project_id: hackathon-data-pipeline

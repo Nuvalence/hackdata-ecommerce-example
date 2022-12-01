@@ -11,3 +11,6 @@ sources:
   - name: airbyte
     tables:
       - name: col
+  - name: public
+    tables:
+      - name: dynamic_entity

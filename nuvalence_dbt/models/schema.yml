@@ -7,6 +7,12 @@ models:
       - name: city
         tests:
           - not_null
+  - name: orders
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
 sources:
   - name: airbyte
     tables:
